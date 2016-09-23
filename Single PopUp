@@ -1,0 +1,34 @@
+Procedure for Single PopUp For Create and Edit Button
+
+
+/*****PopUp (Commmon->> PopFetchListener)*********************************/
+    
+    public void popUpCreateInsert(PopupFetchEvent popupFetchEvent) {
+        // Add event code here...
+        if(popupFetchEvent.getLaunchSourceClientId().contains("b1")){
+        BindingContainer bindings = BindingContext.getCurrent().getCurrentBindingsEntry(); 
+        OperationBinding method = bindings.getOperationBinding("CreateInsert");  
+        method.execute();  }
+    
+    }
+/****************************************************************************/
+
+
+To Close PopUp
+
+/********************PopUp Advanced Binding (Create Method)******************************/
+                        public void setPopUp(RichPopup popUp) {
+                            this.popUp = popUp;
+                        }
+                    
+                        public RichPopup getPopUp() {
+                            return popUp;
+                        }
+/**************************************************************************************/
+
+/*************Button Action (Create Method)***********************/
+                public String popUpClose() {
+                    getPopUp().cancel();
+                    return null;
+                }
+/******************************************************************/
